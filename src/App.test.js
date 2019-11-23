@@ -31,7 +31,6 @@ const findByTestAttr = (wrapper, val) => {
 
 it("renders without crashing", () => {
   const wrapper = setup();
-  console.log(findByTestAttr(wrapper, "component-app"));
   const appComponent = findByTestAttr(wrapper, "component-app");
   expect(appComponent.length).toBe(1);
 });
