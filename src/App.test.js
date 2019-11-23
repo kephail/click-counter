@@ -43,6 +43,12 @@ it("renders increment button", () => {
   expect(button.length).toBe(1);
 });
 
+it("renders increment button", () => {
+  const wrapper = setup();
+  const button = findByTestAttr(wrapper, "decrement-button");
+  expect(button.length).toBe(1);
+});
+
 it("renders counter display", () => {
   const wrapper = setup();
   const counterDisplay = findByTestAttr(wrapper, "counter-display");
@@ -66,4 +72,17 @@ it("should increment counter when increment button is clicked", () => {
   // Find count and test value
   const counterDisplay = findByTestAttr(wrapper, "counter-display");
   expect(counterDisplay.text()).toContain(count + 1);
+});
+
+it("should decrement counter when decrement button is clicked", () => {
+  const count = 7;
+  const wrapper = setup(null, { count });
+
+  // Find button and click
+  const button = findByTestAttr(wrapper, "decrement-button");
+  button.simulate("click");
+
+  // Find count and test value
+  const counterDisplay = findByTestAttr(wrapper, "counter-display");
+  expect(counterDisplay.text()).toContain(count - 1);
 });
