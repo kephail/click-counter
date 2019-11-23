@@ -11,11 +11,13 @@ Enzyme.configure({ adapter: new EnzymeAdapter() });
  * for the App component
  * @function setup
  * @param {object} props - Component props specific to this setup.
- * @param {*} state - initial state for setup.
+ * @param {object} state - initial state for setup.
  * @returns {ShallowWrapper}
  */
 const setup = (props = {}, state = null) => {
-  return shallow(<App {...props} />);
+  const wrapper = shallow(<App {...props} />);
+  if (state) wrapper.setState(state)
+  return wrapper
 };
 
 /**
