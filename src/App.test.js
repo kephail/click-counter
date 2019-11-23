@@ -51,7 +51,6 @@ it("starts with counter set to 0", () => {
   const wrapper = setup();
   const initialCounterState = wrapper.state('count');
   expect(initialCounterState).toBe(0);
-
 });
 
 it("should increment counter when increment button is clicked", () => {});
