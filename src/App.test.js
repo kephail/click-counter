@@ -31,37 +31,37 @@ const findByTestAttr = (wrapper, val) => {
   return wrapper.find(`[data-test="${val}"]`);
 };
 
-it("renders without crashing", () => {
+it("Renders without crashing", () => {
   const wrapper = setup();
   const appComponent = findByTestAttr(wrapper, "component-app");
   expect(appComponent.length).toBe(1);
 });
 
-it("renders increment button", () => {
+it("Renders increment button", () => {
   const wrapper = setup();
   const button = findByTestAttr(wrapper, "increment-button");
   expect(button.length).toBe(1);
 });
 
-it("renders increment button", () => {
+it("Renders increment button", () => {
   const wrapper = setup();
   const button = findByTestAttr(wrapper, "decrement-button");
   expect(button.length).toBe(1);
 });
 
-it("renders counter display", () => {
+it("Renders counter display", () => {
   const wrapper = setup();
   const counterDisplay = findByTestAttr(wrapper, "counter-display");
   expect(counterDisplay.length).toBe(1);
 });
 
-it("starts with counter set to 0", () => {
+it("Starts with counter set to 0", () => {
   const wrapper = setup();
   const initialCounterState = wrapper.state("count");
   expect(initialCounterState).toBe(0);
 });
 
-it("should increment counter when increment button is clicked", () => {
+it("Should increment counter when increment button is clicked", () => {
   const count = 7;
   const wrapper = setup(null, { count });
 
@@ -74,7 +74,7 @@ it("should increment counter when increment button is clicked", () => {
   expect(counterDisplay.text()).toContain(count + 1);
 });
 
-it("should decrement counter when decrement button is clicked", () => {
+it("Should decrement counter when decrement button is clicked", () => {
   const count = 7;
   const wrapper = setup(null, { count });
 
