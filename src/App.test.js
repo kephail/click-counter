@@ -71,7 +71,7 @@ it("Should increment counter when increment button is clicked", () => {
 
   // Find count and test value
   const counterDisplay = findByTestAttr(wrapper, "counter-display");
-  expect(counterDisplay.text()).toContain(count + 1);
+  expect(parseInt(counterDisplay.text())).toEqual(count + 1);
 });
 
 it("Should decrement counter when decrement button is clicked", () => {

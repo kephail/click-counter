@@ -12,8 +12,9 @@ class App extends Component {
   render() {
     return (
       <div data-test="component-app">
-        <h1 data-test="counter-display">
-          The count is currently: {this.state.count}
+        <h1>
+          The count is currently:{" "}
+          <span data-test="counter-display">{this.state.count}</span>
         </h1>
         <button
           data-test="increment-button"
