@@ -89,4 +89,17 @@ describe('Decrement Button', () => {
     const counterDisplay = findByTestAttr(wrapper, "counter-display");
     expect(counterDisplay.text()).toContain(count - 1);
   });
+
+  it('Should not allow the count to go below 0', () => {
+    const count = 0;
+    const wrapper = setup();
+  
+    // Find button and click
+    const button = findByTestAttr(wrapper, "decrement-button");
+    button.simulate("click");
+  
+    // Find count and test value
+    const counterDisplay = findByTestAttr(wrapper, "counter-display");
+    expect(counterDisplay.text()).toContain(count);
+  });
 });
