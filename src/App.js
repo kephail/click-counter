@@ -6,7 +6,8 @@ class App extends Component {
     super(props);
 
     this.state = {
-      count: 0
+      count: 0,
+      error: false
     };
   }
   render() {
@@ -19,7 +20,7 @@ class App extends Component {
         <button
           data-test="increment-button"
           onClick={() => {
-            this.setState({ count: this.state.count + 1 });
+            this.setState({ count: this.state.count + 1, error: false });
           }}
         >
           Increment Counter
@@ -27,12 +28,18 @@ class App extends Component {
         <button
           data-test="decrement-button"
           onClick={() => {
-            if (this.state.count > 0)
+            if (this.state.count > 0) {
               this.setState({ count: this.state.count - 1 });
+            } else {
+              this.setState({ error: true });
+            }
           }}
         >
           Decrement Counter
         </button>
+        {this.state.error && (
+          <div data-test="error-message">You cannot go below 0.</div>
+        )}
       </div>
     );
   }

@@ -68,6 +68,22 @@ describe("Increment Button", () => {
     const counterDisplay = findByTestAttr(wrapper, "counter-display");
     expect(parseInt(counterDisplay.text())).toEqual(count + 1);
   });
+
+  it("Should clear the error if the error is being displayed.", () => {
+    const wrapper = setup(null, { error: true });
+
+    // check if error-message component is visible
+    let errorDiv = findByTestAttr(wrapper, "error-message");
+    expect(errorDiv.length).toBe(1);
+
+    // Find button and click
+    const button = findByTestAttr(wrapper, "increment-button");
+    button.simulate("click");
+
+    // check if error-message component is not visible
+    errorDiv = findByTestAttr(wrapper, "error-message");
+    expect(errorDiv.length).toBe(0);
+  });
 });
 
 describe("Decrement Button", () => {
@@ -101,5 +117,17 @@ describe("Decrement Button", () => {
     // Find count and test value
     const counterDisplay = findByTestAttr(wrapper, "counter-display");
     expect(counterDisplay.text()).toContain(count);
+  });
+
+  it("Should display an error if clicked when the count is 0", () => {
+    const wrapper = setup();
+
+    // Find button and click
+    const button = findByTestAttr(wrapper, "decrement-button");
+    button.simulate("click");
+
+    // check if error-message component is visible
+    const errorDiv = findByTestAttr(wrapper, "error-message");
+    expect(errorDiv.length).toBe(1);
   });
 });
