@@ -27,7 +27,8 @@ class App extends Component {
         <button
           data-test="decrement-button"
           onClick={() => {
-            this.setState({ count: this.state.count - 1 });
+            if (this.state.count > 0)
+              this.setState({ count: this.state.count - 1 });
           }}
         >
           Decrement Counter
